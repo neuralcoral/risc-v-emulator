@@ -39,3 +39,9 @@
 
 # debug information files
 *.dwo
+
+bazel-*
+MODULE.bazel.lock
+.clwb/
+.idea/
+clang_format_wrapper.sh

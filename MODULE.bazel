@@ -1,0 +1,4 @@
+module(name = "risc-v-emulator", version = "1.0")
+bazel_dep(name="rules_cc", version="0.0.17")
+bazel_dep(name = "aspect_rules_lint", version = "1.10.2")
+bazel_dep(name = "googletest", version = "1.14.0")
