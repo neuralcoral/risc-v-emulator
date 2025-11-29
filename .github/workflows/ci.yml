@@ -13,16 +13,15 @@ jobs:
     steps:
     - uses: actions/checkout@v4
 
-    # Cache Bazel artifacts to speed up future runs
-    - name: Mount bazel cache
-      uses: actions/cache@v4
-      with:
-        path: "/home/runner/.cache/bazel"
-        key: bazel-${{ runner.os }}-${{ hashFiles('MODULE.bazel.lock') }}
-        restore-keys: bazel-${{ runner.os }}
-
     - name: Setup Bazel
-      uses: bazelbuild/setup-bazelisk@v2
+      uses: bazel-contrib/setup-bazel@0.8.5
+      with:
+        # Avoid downloading Bazel for every run.
+        bazelisk-cache: true
+        # Store build cache to speed up tests.
+        disk-cache: ${{ github.workflow }}
+        # Share repository cache between workflows.
+        repository-cache: true
 
     - name: Build
       run: bazel build //...
