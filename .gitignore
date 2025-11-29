@@ -43,4 +43,3 @@
 bazel-*
 .clwb/
 .idea/
-clang_format_wrapper.sh
