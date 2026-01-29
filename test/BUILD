@@ -1,10 +1,10 @@
 load("@rules_cc//cc:defs.bzl", "cc_test")
 
 cc_test(
-    name = "cpu_test",
-    srcs = ["cpu_test.cc"],
+    name = "instructions_test",
+    srcs = ["instructions/r_type_test.cc"],
     deps = [
-        "//src:cpu",
+        "//src:instructions",
         "@googletest//:gtest_main",
-    ],
+    ]
 )
