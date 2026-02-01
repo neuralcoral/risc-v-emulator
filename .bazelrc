@@ -1,0 +1,8 @@
+# Flags for everyone
+build --noincompatible_strict_action_env
+
+# Linux-specific tweaks (using the built-in 'linux' config name)
+build:linux --linkopts=-fuse-ld=gold
+
+# macOS-specific tweaks
+build:macos --apple_generate_dsym
