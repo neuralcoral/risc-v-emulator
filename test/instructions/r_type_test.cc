@@ -1,8 +1,5 @@
 #include "gtest/gtest.h"
 #include "src/instructions/r_type.h"
-//
-// Created by george on 1/31/26.
-//
 
 class RTypeTest : public ::testing::Test {
 protected:
