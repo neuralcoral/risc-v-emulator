@@ -24,7 +24,8 @@ cc_library(
     hdrs = [
         "instructions/base_instruction.h",
         "instructions/r_type.h",
-        "instructions/i_type.h"
+        "instructions/i_type.h",
+        "instructions/s_type.h"
     ],
     visibility = ["//visibility:public"]
 )
