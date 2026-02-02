@@ -20,11 +20,11 @@ cc_library(
     name = "instructions",
     srcs = [
         "instructions/base_instruction.cc",
-        "instructions/r_type.cc"
         ],
     hdrs = [
         "instructions/base_instruction.h",
-        "instructions/r_type.h"
+        "instructions/r_type.h",
+        "instructions/i_type.h"
     ],
     visibility = ["//visibility:public"]
 )
