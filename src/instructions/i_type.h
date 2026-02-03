@@ -13,5 +13,4 @@ public:
     constexpr uint16_t getImm() {return (instruction >> 20) & 0x0FFF; }
 };
 
-
 #endif //RISC_V_EMULATOR_I_TYPE_H
