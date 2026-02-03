@@ -20,7 +20,7 @@ protected:
     static constexpr FUNCT_3 FUNCT_3_BITMASK = 0x7;
 public:
     BaseInstruction(const INSTRUCTION&);
-    constexpr OPCODE getOpCode() { return instruction & 0x3F; }
+    constexpr OPCODE getOpCode() { return instruction & 0x7F; }
     constexpr INSTRUCTION  getInstruction() { return instruction; }
 };
 

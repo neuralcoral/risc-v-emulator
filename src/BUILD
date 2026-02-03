@@ -25,7 +25,8 @@ cc_library(
         "instructions/base_instruction.h",
         "instructions/r_type.h",
         "instructions/i_type.h",
-        "instructions/s_type.h"
+        "instructions/s_type.h",
+        "instructions/b_type.h"
     ],
     visibility = ["//visibility:public"]
 )
