@@ -15,8 +15,8 @@ private:
 public:
     using BaseInstruction::BaseInstruction;
 
-    constexpr REGISTER_ADDRESS getRs1() { return (instruction >> 15) & REGISTER_BITMASK; }
-    constexpr REGISTER_ADDRESS getRs2() { return (instruction >> 20) & REGISTER_BITMASK; }
+    constexpr riscv::address_t getRs1() { return (instruction >> 15) & REGISTER_BITMASK; }
+    constexpr riscv::address_t getRs2() { return (instruction >> 20) & REGISTER_BITMASK; }
     constexpr FUNCT_3  getFunct3() {return (instruction >> 12) & FUNCT_3_BITMASK; }
     constexpr uint16_t getImm() {
         return (

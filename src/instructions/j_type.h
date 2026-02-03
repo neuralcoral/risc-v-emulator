@@ -17,7 +17,7 @@ public:
                 (getImmLo() << 1)
             );
     }
-    constexpr REGISTER_ADDRESS getRd() { return (instruction >> 7) & REGISTER_BITMASK; }
+    constexpr riscv::address_t getRd() { return (instruction >> 7) & REGISTER_BITMASK; }
 };
 
 #endif //RISC_V_EMULATOR_J_TYPE_H
