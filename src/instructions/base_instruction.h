@@ -1,7 +1,3 @@
-//
-// Created by George Alfaro on 1/26/26.
-//
-
 #ifndef RISC_V_EMULATOR_OPERATIONS_H
 #define RISC_V_EMULATOR_OPERATIONS_H
 #include <cstdint>
@@ -10,7 +6,6 @@ typedef uint8_t OPCODE;
 typedef uint8_t FUNCT_7;
 typedef uint8_t REGISTER_ADDRESS;
 typedef uint8_t FUNCT_3;
-
 
 class BaseInstruction {
 protected:

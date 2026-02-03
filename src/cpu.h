@@ -1,7 +1,3 @@
-//
-// Created by George Alfaro on 11/24/25.
-//
-
 #ifndef RISC_V_EMULATOR_CPU_H
 #define RISC_V_EMULATOR_CPU_H
 #include <cstdint>
