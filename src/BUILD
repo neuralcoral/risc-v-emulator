@@ -9,7 +9,7 @@ cc_library(
     name ="cpu",
     srcs = ["cpu.cc"],
     hdrs = ["cpu.h"],
-    deps = [":instructions"],
+    deps = ["//src/instructions:instructions"],
     local_defines = select({
         ":debug_mode": ["DEBUG"],
         "//conditions:default": []
@@ -17,19 +17,10 @@ cc_library(
 )
 
 cc_library(
-    name = "instructions",
-    srcs = [
-        "instructions/base_instruction.cc",
-        ],
-    hdrs = [
-        "instructions/base_instruction.h",
-        "instructions/r_type.h",
-        "instructions/i_type.h",
-        "instructions/s_type.h",
-        "instructions/b_type.h",
-        "instructions/j_type.h",
-        "instructions/u_type.h",
-    ],
+    name = "register_files",
+    srcs = ["register_file.cc"],
+    hdrs = ["register_file.h"],
+    deps = ["//src/common:types", "//src/exceptions:exceptions"],
     visibility = ["//visibility:public"]
 )
 

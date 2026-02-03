@@ -11,7 +11,18 @@ cc_test(
         "instructions/u_type_test.cc",
         ],
     deps = [
-        "//src:instructions",
+        "//src/instructions:instructions",
+        "@googletest//:gtest_main",
+    ]
+)
+
+cc_test(
+    name = "register_file_test",
+    srcs = [
+        "register_file_test.cc"
+    ],
+    deps = [
+        "//src:register_files",
         "@googletest//:gtest_main",
     ]
 )

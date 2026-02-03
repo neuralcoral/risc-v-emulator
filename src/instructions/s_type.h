@@ -12,8 +12,8 @@ public:
     using BaseInstruction::BaseInstruction;
 
     constexpr FUNCT_3  getFunct3() { return (instruction >> 12) & FUNCT_3_BITMASK; }
-    constexpr REGISTER_ADDRESS getRs1() { return (instruction >> 15) & REGISTER_BITMASK; }
-    constexpr REGISTER_ADDRESS getRs2() { return (instruction >> 20) & REGISTER_BITMASK; }
+    constexpr riscv::address_t getRs1() { return (instruction >> 15) & REGISTER_BITMASK; }
+    constexpr riscv::address_t getRs2() { return (instruction >> 20) & REGISTER_BITMASK; }
     // IMM_HI (16 bit) = ____ ____ _111 1001
     // IMM_LO (8 bit) = ___0 1010
     // IMM = 1111 0010 1010

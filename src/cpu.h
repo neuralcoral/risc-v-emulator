@@ -11,15 +11,9 @@
 #endif
 
 class Cpu {
-    static constexpr int NUM_OF_REGISTERS { 32 };
-    uint32_t programCounter;
-    std::array<uint32_t, NUM_OF_REGISTERS> registers;
-
    public:
     Cpu();
     ~Cpu();
-    void reset();
-    void execute(INSTRUCTION instruction);
 };
 
 #endif  // RISC_V_EMULATOR_CPU_H
