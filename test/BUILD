@@ -5,7 +5,8 @@ cc_test(
     srcs = [
         "instructions/r_type_test.cc",
         "instructions/i_type_test.cc",
-        "instructions/s_type_test.cc"
+        "instructions/s_type_test.cc",
+        "instructions/b_type_test.cc"
         ],
     deps = [
         "//src:instructions",
