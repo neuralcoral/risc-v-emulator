@@ -7,7 +7,8 @@ cc_test(
         "instructions/i_type_test.cc",
         "instructions/s_type_test.cc",
         "instructions/b_type_test.cc",
-        "instructions/u_type_test.cc"
+        "instructions/j_type_test.cc",
+        "instructions/u_type_test.cc",
         ],
     deps = [
         "//src:instructions",
