@@ -1,7 +1,13 @@
-load("@rules_cc//cc:defs.bzl", "cc_binary", "cc_library")
+load("@rules_cc//cc:defs.bzl", "cc_library")
+
+cc_library(
+    name = "common",
+    hdrs = ["constants.h"],
+    visibility = ["//visibility:public"],
+    deps = ["types"]
+)
 
 cc_library(
     name = "types",
-    hdrs = ["types.h"],
-    visibility = ["//visibility:public"]
+    hdrs = ["types.h"]
 )

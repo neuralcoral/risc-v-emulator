@@ -20,7 +20,7 @@ cc_library(
     name = "register_files",
     srcs = ["register_file.cc"],
     hdrs = ["register_file.h"],
-    deps = ["//src/common:types", "//src/exceptions:exceptions"],
+    deps = ["//src/common:common", "//src/exceptions:exceptions"],
     visibility = ["//visibility:public"]
 )
 

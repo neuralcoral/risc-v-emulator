@@ -15,7 +15,7 @@ cc_library(
         "u_type.h",
     ],
     deps = [
-        "//src/common:types"
+        "//src/common:common"
     ],
     visibility = ["//visibility:public"]
 )
