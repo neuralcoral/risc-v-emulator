@@ -1,3 +1,6 @@
+# Allows for different platforms, like Apple Silicon and x86
+common --lockfile_mode=update
+
 # Flags for everyone
 build --noincompatible_strict_action_env
 

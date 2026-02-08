@@ -12,7 +12,7 @@ void RegisterFile::reset() {
 }
 
 void RegisterFile::write(const riscv::address_t &registerAddress, const uint32_t &value) {
-    if (registerAddress >= NUM_OF_REGISTERS or registerAddress < 0) {
+    if (registerAddress >= riscv::NUM_OF_REGISTERS or registerAddress < 0) {
         throw RegisterFileException {
             "RegisterFile::write failed. registerAddress=" + std::to_string(registerAddress) + " is out of bounds"
         };
@@ -25,7 +25,7 @@ void RegisterFile::write(const riscv::address_t &registerAddress, const uint32_t
 }
 
 uint32_t RegisterFile::read(const riscv::address_t &registerAddress) {
-    if (registerAddress >= NUM_OF_REGISTERS or registerAddress < 0) {
+    if (registerAddress >= riscv::NUM_OF_REGISTERS or registerAddress < 0) {
         throw RegisterFileException {
                 "RegisterFile::read failed. registerAddress=" + std::to_string(registerAddress) + " is out of bounds"
         };
