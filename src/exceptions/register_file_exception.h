@@ -9,7 +9,7 @@ class RegisterFileException : public std::exception {
 private:
     std::string m_error;
 public:
-    RegisterFileException(std::string_view error) : m_error{ error } { }
+    explicit RegisterFileException(std::string_view error) : m_error{ error } { }
 
     const char* what() const noexcept override { return m_error.c_str(); }
 };

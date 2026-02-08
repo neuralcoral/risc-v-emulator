@@ -3,7 +3,7 @@
 #include "types.h"
 
 namespace riscv {
-    constexpr word_t MEMORY_SIZE { sizeof(word_t) };
+    constexpr word_t MEMORY_SIZE { 1 << 12 };
     constexpr uint8_t NUM_OF_REGISTERS { 32 };
 }
 
