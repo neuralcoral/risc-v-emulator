@@ -12,9 +12,19 @@ cc_library(
     srcs = ["memory.cc"],
     hdrs = ["memory.h"],
     deps = [
-        "//src/common:common",
         "devices",
         "//src/exceptions:exceptions"
         ],
+    visibility = ["//visibility:public"]
+)
+
+cc_library(
+    name = "uart",
+    srcs = ["simple_uart.cc"],
+    hdrs = ["simple_uart.h"],
+    deps = [
+        "devices",
+        "//src/exceptions:exceptions"
+    ],
     visibility = ["//visibility:public"]
 )

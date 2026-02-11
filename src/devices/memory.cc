@@ -2,7 +2,7 @@
 #include "src/exceptions/memory_exception.h"
 
 
-riscv::byte_t Memory::read(const riscv::mem_addr_t& addr) const {
+riscv::byte_t Memory::read(const riscv::mem_addr_t& addr) {
     if (addr < 0 or addr >= size()) {
         throw MemoryException("Failed Memory::read. `addr` is out of bounds");
     }
@@ -18,5 +18,5 @@ void Memory::write(const riscv::mem_addr_t& addr, const riscv::byte_t& value) {
 }
 
 riscv::double_word_t Memory::size() const {
-    return riscv::MEMORY_SIZE;
+    return riscv::RAM_SIZE;
 }
