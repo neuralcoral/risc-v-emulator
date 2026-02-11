@@ -10,3 +10,14 @@ cc_test(
         "@googletest//:gtest_main"
     ]
 )
+
+cc_test(
+    name = "uart_test",
+    srcs = [
+        "simple_uart_test.cc"
+    ],
+    deps = [
+        "//src/devices:uart",
+        "@googletest//:gtest_main"
+    ]
+)

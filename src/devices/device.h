@@ -8,7 +8,7 @@ class Device
 {
 public:
     virtual ~Device() = default;
-    virtual riscv::byte_t read(const riscv::mem_addr_t& addr) const = 0;
+    virtual riscv::byte_t read(const riscv::mem_addr_t& addr) = 0;
     virtual void write(const riscv::mem_addr_t& addr, const riscv::byte_t& value) = 0;
     // Size of the device's memory space in bytes
     virtual riscv::double_word_t  size() const = 0;

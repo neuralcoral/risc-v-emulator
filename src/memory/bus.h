@@ -5,15 +5,30 @@
 #include <array>
 
 #include "src/common/constants.h"
+#include "src/devices/memory.h"
+#include "src/devices/simple_uart.h"
+#include <unordered_map>
+#include <functional>
+
+namespace {
+    enum DeviceType {
+        MEMORY,
+        UART,
+        UNDEFINED
+    };
+}
 
 class Bus {
 private:
-    std::array<riscv::word_t, riscv::MEMORY_SIZE> memory_m {};
+    std::unordered_map<DeviceType, Device*> device_map;
+
+
+    DeviceType routeToDevice(const riscv::mem_addr_t& addr) const;
 
 public:
-    explicit Bus();
+    explicit Bus(Memory& memory, SimpleUART& uart);
     void write(const riscv::mem_addr_t& addr, const riscv::word_t& value);
-    riscv::word_t read(const riscv::mem_addr_t& addr) const;
+    riscv::word_t read(const riscv::mem_addr_t& addr);
 };
 
 #endif //RISC_V_EMULATOR_BUS_H

@@ -9,3 +9,5 @@ build:linux --linkopts=-fuse-ld=gold
 
 # macOS-specific tweaks
 build:macos --apple_generate_dsym
+
+build --compilation_mode=dbg
