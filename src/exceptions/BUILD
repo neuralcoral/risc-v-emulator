@@ -6,6 +6,7 @@ cc_library(
         "register_file_exception.h",
         "device_exception.h",
         "memory_exception.h",
+        "bus_exception.h"
     ],
     visibility = ["//visibility:public"]
 )

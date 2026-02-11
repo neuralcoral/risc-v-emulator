@@ -6,6 +6,14 @@ config_setting(
 )
 
 cc_library(
+    name = "bus",
+    srcs = ["bus.cc"],
+    hdrs = ["bus.h"],
+    deps = ["//src/devices:devices"],
+    visibility = ["//visibility:public"]
+)
+
+cc_library(
     name ="cpu",
     srcs = ["cpu.cc"],
     hdrs = ["cpu.h"],

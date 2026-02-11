@@ -25,5 +25,8 @@ void SimpleUART::update() {
     while (in.peek() != EOF and rx.size() < RX_BUFFER_SZ) {
         rx.push(in.get());
     }
+}
 
+bool SimpleUART::is_active() {
+    return true;
 }

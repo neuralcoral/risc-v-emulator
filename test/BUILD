@@ -10,3 +10,14 @@ cc_test(
         "@googletest//:gtest_main",
     ]
 )
+
+cc_test(
+    name="bus_test",
+    srcs = [
+        "bus_test.cc"
+    ],
+    deps =[
+        "//src:bus",
+        "@googletest//:gtest_main"
+    ]
+)

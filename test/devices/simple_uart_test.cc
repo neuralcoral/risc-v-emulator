@@ -4,8 +4,7 @@
 
 class SimpleUARTTest : public ::testing::Test {
 protected:
-    std::stringstream fake_out;
-    std::stringstream fake_in;
+    std::stringstream fake_in, fake_out;
     SimpleUART uart;
 
     SimpleUARTTest() : uart(fake_in, fake_out) {}
