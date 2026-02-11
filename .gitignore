@@ -43,3 +43,4 @@
 bazel-*
 .clwb/
 .idea/
+lab/

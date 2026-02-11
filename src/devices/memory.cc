@@ -16,7 +16,3 @@ void Memory::write(const riscv::mem_addr_t& addr, const riscv::byte_t& value) {
     }
     memory[addr] = value;
 }
-
-riscv::double_word_t Memory::size() const {
-    return riscv::RAM_SIZE;
-}

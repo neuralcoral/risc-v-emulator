@@ -3,6 +3,7 @@
 
 
 #include "src/devices/device.h"
+#include "src/common/constants.h"
 #include <queue>
 #include <iosfwd>
 
@@ -16,9 +17,10 @@ public:
     explicit SimpleUART(std::istream& in_stream, std::ostream& out_stream) :in(in_stream), out(out_stream) {}
     riscv::byte_t read(const riscv::mem_addr_t &addr) override;
     void write(const riscv::mem_addr_t &addr, const riscv::byte_t &value) override;
-    void update();
+    void update() override;
+    bool is_active() override;
 
-    virtual riscv::double_word_t size() const override { return 8; }
+    riscv::mem_addr_t size() const override { return riscv::UART_SIZE; }
 
     static constexpr riscv::mem_addr_t DATA_ADDR { 0 },
             STATUS_ADDR { 5 };

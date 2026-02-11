@@ -12,7 +12,7 @@ private:
     public:
         riscv::byte_t read(const riscv::mem_addr_t& addr) override;
         void write(const riscv::mem_addr_t& addr, const riscv::byte_t& value) override;
-        riscv::double_word_t size() const override;
+        riscv::mem_addr_t size() const override { return riscv::RAM_SIZE; };
 };
 
 
