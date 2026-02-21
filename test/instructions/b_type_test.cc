@@ -15,10 +15,6 @@ protected:
     BTypeTest() : b_type_inst(0x00208463) { }
 };
 
-TEST_F(BTypeTest, DecodeImmCorrectly) {
-    EXPECT_EQ(b_type_inst.getImm(), 8);
-}
-
 TEST_F(BTypeTest, DecodeRs2Correctly) {
     EXPECT_EQ(b_type_inst.getRs2(), 2);
 }

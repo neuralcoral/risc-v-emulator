@@ -9,8 +9,7 @@ public:
 
     constexpr riscv::address_t getRd() { return (instruction >> 7) & REGISTER_BITMASK; }
     constexpr riscv::address_t getRs1() { return (instruction >> 15) & REGISTER_BITMASK; }
-    constexpr FUNCT_3  getFunct3() { return (instruction >> 12) & FUNCT_3_BITMASK; }
-    constexpr uint16_t getImm() {return (instruction >> 20) & 0x0FFF; }
+    constexpr riscv::funct_t  getFunct3() { return (instruction >> 12) & FUNCT_3_BITMASK; }
 };
 
 #endif //RISC_V_EMULATOR_I_TYPE_H

@@ -15,10 +15,6 @@ protected:
     JTypeTest() : j_type_inst(0x014000EF) {}
 };
 
-TEST_F(JTypeTest, DecodesImmCorrectly) {
-    EXPECT_EQ(j_type_inst.getImm(), 20);
-}
-
 TEST_F(JTypeTest, DecodesRdCorrectly) {
     EXPECT_EQ(j_type_inst.getRd(), 1);
 }

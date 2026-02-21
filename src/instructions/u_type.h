@@ -7,7 +7,6 @@ class UType : public BaseInstruction {
 public:
     using BaseInstruction::BaseInstruction;
 
-    constexpr uint32_t getImm() { return instruction  & 0xFFFFF000; }
     constexpr riscv::address_t getRd() { return (instruction >> 7) & 0x1F; }
 };
 

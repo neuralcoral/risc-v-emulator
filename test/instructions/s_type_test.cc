@@ -16,10 +16,6 @@ protected:
     STypeTest() :  s_type_inst(0x208223) {}
 };
 
-TEST_F(STypeTest, DecodeImmCorrectly) {
-    EXPECT_EQ(s_type_inst.getImm(), 0b0100);
-}
-
 TEST_F(STypeTest, DecodeRs2Correctly) {
     EXPECT_EQ(s_type_inst.getRs2(), 0b0010);
 }

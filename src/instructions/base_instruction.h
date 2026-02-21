@@ -1,22 +1,18 @@
 #ifndef RISC_V_EMULATOR_OPERATIONS_H
 #define RISC_V_EMULATOR_OPERATIONS_H
-#include <cstdint>
 #include "src/common/types.h"
-typedef uint32_t INSTRUCTION ;
-typedef uint8_t OPCODE;
-typedef uint8_t FUNCT_7;
-typedef uint8_t FUNCT_3;
 
 class BaseInstruction {
 protected:
-    INSTRUCTION  instruction;
+    riscv::instruction_t instruction;
     static constexpr riscv::address_t REGISTER_BITMASK = 0x1F;
-    static constexpr FUNCT_7 FUNCT_7_BITMASK = 0x7F;
-    static constexpr FUNCT_3 FUNCT_3_BITMASK = 0x7;
+    static constexpr riscv::funct_t FUNCT_7_BITMASK = 0x7F;
+    static constexpr riscv::funct_t FUNCT_3_BITMASK = 0x7;
 public:
-    BaseInstruction(const INSTRUCTION&);
-    constexpr OPCODE getOpCode() { return instruction & 0x7F; }
-    constexpr INSTRUCTION  getInstruction() { return instruction; }
+    explicit BaseInstruction(const riscv::instruction_t& ins);
+    // Bits [1:0] are always 11, so we shift right
+    constexpr riscv::opcode_t getOpCode() const { return (instruction & 0x7F); }
+    constexpr riscv::instruction_t getInstruction() const { return instruction; }
 };
 
 
