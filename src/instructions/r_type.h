@@ -10,8 +10,8 @@ public:
     constexpr riscv::address_t getRd() { return (instruction >> 7) & REGISTER_BITMASK; }
     constexpr riscv::address_t getRs1() { return (instruction >> 15) & REGISTER_BITMASK; }
     constexpr riscv::address_t getRs2() { return (instruction >> 20) & REGISTER_BITMASK; }
-    constexpr FUNCT_3  getFunct3() { return (instruction >> 12) & FUNCT_3_BITMASK; }
-    constexpr FUNCT_7  getFunct7() { return (instruction >> 25) & FUNCT_7_BITMASK; }
+    constexpr riscv::funct_t  getFunct3() { return (instruction >> 12) & FUNCT_3_BITMASK; }
+    constexpr riscv::funct_t  getFunct7() { return (instruction >> 25) & FUNCT_7_BITMASK; }
 };
 
 

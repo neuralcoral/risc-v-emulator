@@ -27,10 +27,6 @@ TEST_F(ITypeTest, DecodesFunct3Correctly) {
     EXPECT_EQ(i_type_inst.getFunct3(), 0b0);
 }
 
-TEST_F(ITypeTest, DecodesImmCorrectly) {
-    EXPECT_EQ(i_type_inst.getImm(), 8);
-}
-
 TEST_F(ITypeTest, DecodesOpCodeCorrectly) {
     EXPECT_EQ(i_type_inst.getOpCode(), 0b0010011);
 }

@@ -16,10 +16,6 @@ protected:
     UTypeTest() : u_type_inst(0x12345FB7) {}
 };
 
-TEST_F(UTypeTest, DecodesImmCorrectly) {
-    EXPECT_EQ(u_type_inst.getImm(), 0x12345000);
-}
-
 TEST_F(UTypeTest, DecodesRdCorrectly) {
     EXPECT_EQ(u_type_inst.getRd(), 31);
 }

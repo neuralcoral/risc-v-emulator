@@ -4,4 +4,4 @@
 
 #include "base_instruction.h"
 
-BaseInstruction::BaseInstruction(const INSTRUCTION &instruction) : instruction { instruction } { }
+BaseInstruction::BaseInstruction(const riscv::instruction_t& ins) : instruction { ins } { }
