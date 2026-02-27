@@ -11,6 +11,7 @@ enum TokenType {
     COMMA = 3,
     L_PAREN = 4,
     R_PAREN = 5,
+    LABEL = 6,
 
     X0 = 10,
     X1 = 11,
