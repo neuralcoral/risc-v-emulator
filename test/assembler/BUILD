@@ -8,3 +8,13 @@ cc_test(
         "@googletest//:gtest_main",
     ],
 )
+
+cc_test(
+    name = "assembler_test",
+    srcs = ["assembler_test.cc"],
+    deps = [
+        "//src/assembler:assembler",
+        "//src/assembler:lexer",
+        "@googletest//:gtest_main",
+    ],
+)
