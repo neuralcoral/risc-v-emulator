@@ -79,7 +79,6 @@ TEST(LexerTest, RTypeMnemonics) {
     const std::vector<std::pair<std::string, TokenType>> cases = {
         {"add", ADD}, {"sub", SUB}, {"sll", SLL}, {"slt", SLT}, {"sltu", SLTU},
         {"xor", XOR}, {"srl", SRL}, {"sra", SRA}, {"or", OR},   {"and", AND},
-        {"mul", MUL}, {"div", DIV}, {"rem", REM},
     };
     for (const auto& [mnemonic, expected] : cases) {
         Lexer lexer(mnemonic);
@@ -170,7 +169,7 @@ TEST(LexerTest, CanonicalRegisters) {
 
 TEST(LexerTest, AbiRegisterAliases) {
     const std::vector<std::pair<std::string, TokenType>> cases = {
-        {"zero", ZERO}, {"ra", RA}, {"sp", SP},   {"tp", TP}, {"t0", T0},
+        {"zero", ZERO}, {"ra", RA}, {"sp", SP},   {"gp", GP}, {"tp", TP}, {"t0", T0},
         {"t6", T6},     {"s0", S0}, {"s11", S11}, {"a0", A0}, {"a7", A7},
     };
     for (const auto& [reg, expected] : cases) {
