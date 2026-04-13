@@ -29,6 +29,12 @@ cc_binary(
     deps = [":lexer"],
 )
 
+cc_binary(
+    name = "main",
+    srcs = ["main.cc"],
+    deps = [":assembler"],
+)
+
 cc_library(
     name = "assembler",
     srcs = ["assembler.cc"],
