@@ -5,3 +5,5 @@
 #include "base_instruction.h"
 
 BaseInstruction::BaseInstruction(const riscv::instruction_t& ins) : instruction { ins } { }
+
+BaseInstruction::BaseInstruction() = default;

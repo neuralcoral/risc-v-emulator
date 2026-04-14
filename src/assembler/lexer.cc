@@ -1,7 +1,6 @@
 #include "src/assembler/lexer.h"
 
 #include <cctype>
-#include <sstream>
 #include <string>
 #include <vector>
 
