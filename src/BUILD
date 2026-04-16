@@ -9,31 +9,33 @@ cc_library(
     name = "bus",
     srcs = ["bus.cc"],
     hdrs = ["bus.h"],
-    deps = ["//src/devices:devices"],
-    visibility = ["//visibility:public"]
+    visibility = ["//visibility:public"],
+    deps = ["//src/devices"],
 )
 
 cc_library(
-    name ="cpu",
+    name = "cpu",
     srcs = ["cpu.cc"],
     hdrs = ["cpu.h"],
-    deps = ["//src/instructions:instructions"],
-    local_defines = select({
-        ":debug_mode": ["DEBUG"],
-        "//conditions:default": []
-    })
+    deps = [
+        "//src/devices:memory",
+        "//src/instructions",
+    ],
 )
 
 cc_library(
     name = "register_files",
     srcs = ["register_file.cc"],
     hdrs = ["register_file.h"],
-    deps = ["//src/common:common", "//src/exceptions:exceptions"],
-    visibility = ["//visibility:public"]
+    visibility = ["//visibility:public"],
+    deps = [
+        "//src/common",
+        "//src/exceptions",
+    ],
 )
 
 cc_binary(
     name = "main",
     srcs = ["main.cc"],
-    deps = [":cpu"]
+    deps = [":cpu"],
 )
