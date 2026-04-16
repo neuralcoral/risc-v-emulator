@@ -2,6 +2,7 @@
 #define RISC_V_EMULATOR_OPERATIONS_H
 #include "src/common/types.h"
 
+// TODO: Check if we still need these after ALU is complete. If not remove
 class BaseInstruction {
 protected:
     riscv::instruction_t instruction{};

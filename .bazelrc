@@ -3,6 +3,7 @@ common --lockfile_mode=update
 
 # Flags for everyone
 build --noincompatible_strict_action_env
+build --cxxopt=-std=c++20
 
 # Linux-specific tweaks (using the built-in 'linux' config name)
 build:linux --linkopts=-fuse-ld=gold

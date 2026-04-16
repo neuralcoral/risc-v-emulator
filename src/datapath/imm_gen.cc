@@ -45,6 +45,7 @@ const riscv::word_t ImmGen::generate(const BaseInstruction& instruction) const {
     return generate(instruction.getInstruction());
 }
 
+// TODO Refactor to take InstructionType as well. We should already have the OPCode by now
 const riscv::word_t ImmGen::generate(const riscv::instruction_t &inst) const {
     /**
      * bits [6:5] (rows) x bits [4:2] (columns)
