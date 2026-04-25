@@ -1,6 +1,6 @@
 #include "src/bus.h"
 
-void Bus::write(const riscv::mem_addr_t& addr, const riscv::word_t& value) {
+void Bus::write(const riscv::mem_addr_t& addr, const riscv::uword_t& value) {
     const DeviceMapping* device_mapping = find_device(addr);
     if (!device_mapping) {
         throw BusException("Failed Bus::write. Bus fault, no device at address.");
@@ -8,7 +8,7 @@ void Bus::write(const riscv::mem_addr_t& addr, const riscv::word_t& value) {
     return device_mapping->device->write(addr - device_mapping->offset, value);
 }
 
-riscv::word_t Bus::read(const riscv::mem_addr_t& addr) {
+riscv::uword_t Bus::read(const riscv::mem_addr_t& addr) {
     const DeviceMapping* device_mapping = find_device(addr);
     if (!device_mapping) {
         throw BusException("Failed Bus::read. Bus fault, no device at address.");

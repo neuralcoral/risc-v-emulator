@@ -3,13 +3,13 @@
 #include "types.h"
 
 namespace riscv {
-    constexpr word_t RAM_SIZE {1 << 12 };
+    constexpr uword_t RAM_SIZE {1 << 12 };
     constexpr uint8_t NUM_OF_REGISTERS { 32 };
-    constexpr word_t RAM_OFFSET {0x80000000 };
-    constexpr word_t RAM_UPPER_LIMIT {RAM_OFFSET + RAM_SIZE };
-    constexpr word_t UART_SIZE { 0x100 };
-    constexpr word_t UART_OFFSET {0x10000000 };
-    constexpr word_t UART_UPPER_LIMIT {UART_OFFSET + UART_SIZE };
+    constexpr uword_t RAM_OFFSET {0x80000000 };
+    constexpr uword_t RAM_UPPER_LIMIT {RAM_OFFSET + RAM_SIZE };
+    constexpr uword_t UART_SIZE {0x100 };
+    constexpr uword_t UART_OFFSET {0x10000000 };
+    constexpr uword_t UART_UPPER_LIMIT {UART_OFFSET + UART_SIZE };
 }
 
 #endif //RISC_V_EMULATOR_CONSTANTS_H

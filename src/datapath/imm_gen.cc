@@ -2,7 +2,7 @@
 
 #include "src/instructions/b_type.h"
 
-const riscv::word_t ImmGen::getBImm(const riscv::instruction_t& ins) const {
+const riscv::uword_t ImmGen::getBImm(const riscv::instruction_t& ins) const {
     const int32_t imm_msb = static_cast<int32_t> ((ins) & (1u << 31)) >> 19; // 19 = 31 (current bit) - 12 (goal bit)
     const uint16_t imm_eleventh_bit = (ins & (1u << 7))  << 4; // -4 = 7 (current bit) - 11 (goal bit), negative means shift left
     const uint32_t imm_hi = (ins & (0x3Fu << 25)) >> 20; // 20 = 25 (current bit) - 5 (goal bit)
@@ -13,11 +13,11 @@ const riscv::word_t ImmGen::getBImm(const riscv::instruction_t& ins) const {
            imm_lo;
 }
 
-const riscv::word_t ImmGen::getIImm(const riscv::instruction_t& ins) const {
+const riscv::uword_t ImmGen::getIImm(const riscv::instruction_t& ins) const {
     return static_cast<int32_t> (ins) >> 20;
 }
 
-const riscv::word_t ImmGen::getJImm(const riscv::instruction_t& ins) const {
+const riscv::uword_t ImmGen::getJImm(const riscv::instruction_t& ins) const {
     // Shortcut to sign-extend the Most Significant Bit (MSB)
     const int32_t imm_msb = static_cast<int32_t> (ins & (1u << 31)) >> 11; // 11 = 31 (current bit) - 20 (goal bit)
     const uint32_t imm_bit_11 = (ins & (1u << 20)) >> 9; // 9 = 20 (current bit) - 11 (goal bit)
@@ -31,22 +31,22 @@ const riscv::word_t ImmGen::getJImm(const riscv::instruction_t& ins) const {
 }
 
 
-const riscv::word_t ImmGen::getSImm(const riscv::instruction_t& ins) const {
+const riscv::uword_t ImmGen::getSImm(const riscv::instruction_t& ins) const {
     const int32_t imm_hi = static_cast<int32_t> (ins & (0xFEu << 24)) >> 20;
     const uint8_t imm_lo = ins >> 7 & 0x1F;
     return imm_hi | imm_lo;
 }
 
-const riscv::word_t ImmGen::getUImm(const riscv::instruction_t& ins) const {
+const riscv::uword_t ImmGen::getUImm(const riscv::instruction_t& ins) const {
     return ins & 0xFFFFF000;
 }
 
-const riscv::word_t ImmGen::generate(const BaseInstruction& instruction) const {
+const riscv::uword_t ImmGen::generate(const BaseInstruction& instruction) const {
     return generate(instruction.getInstruction());
 }
 
 // TODO Refactor to take InstructionType as well. We should already have the OPCode by now
-const riscv::word_t ImmGen::generate(const riscv::instruction_t &inst) const {
+const riscv::uword_t ImmGen::generate(const riscv::instruction_t &inst) const {
     /**
      * bits [6:5] (rows) x bits [4:2] (columns)
      *

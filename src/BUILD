@@ -14,16 +14,6 @@ cc_library(
 )
 
 cc_library(
-    name = "cpu",
-    srcs = ["cpu.cc"],
-    hdrs = ["cpu.h"],
-    deps = [
-        "//src/devices:memory",
-        "//src/instructions",
-    ],
-)
-
-cc_library(
     name = "register_files",
     srcs = ["register_file.cc"],
     hdrs = ["register_file.h"],
@@ -37,5 +27,5 @@ cc_library(
 cc_binary(
     name = "main",
     srcs = ["main.cc"],
-    deps = [":cpu"],
+    deps = ["//src/cpu"],
 )

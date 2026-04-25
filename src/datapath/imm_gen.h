@@ -6,14 +6,14 @@
 
 class ImmGen
 {
-    const riscv::word_t getBImm(const riscv::instruction_t& ins) const;
-    const riscv::word_t getIImm(const riscv::instruction_t& ins) const;
-    const riscv::word_t getJImm(const riscv::instruction_t& ins) const;
-    const riscv::word_t getSImm(const riscv::instruction_t& ins) const;
-    const riscv::word_t getUImm(const riscv::instruction_t& ins) const;
+    const riscv::uword_t getBImm(const riscv::instruction_t& ins) const;
+    const riscv::uword_t getIImm(const riscv::instruction_t& ins) const;
+    const riscv::uword_t getJImm(const riscv::instruction_t& ins) const;
+    const riscv::uword_t getSImm(const riscv::instruction_t& ins) const;
+    const riscv::uword_t getUImm(const riscv::instruction_t& ins) const;
 public:
-    const riscv::word_t generate(const BaseInstruction& instruction) const;
-    const riscv::word_t generate(const riscv::instruction_t& instruction) const;
+    const riscv::uword_t generate(const BaseInstruction& instruction) const;
+    const riscv::uword_t generate(const riscv::instruction_t& instruction) const;
 };
 
 

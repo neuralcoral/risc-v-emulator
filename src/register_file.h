@@ -12,7 +12,7 @@ private:
 public:
     explicit RegisterFile();
     void reset();
-    void write(const riscv::address_t& registerAddress, const riscv::word_t & value);
+    void write(const riscv::address_t& registerAddress, const riscv::uword_t & value);
     uint32_t read(const riscv::address_t& registerAddress);
 };
 

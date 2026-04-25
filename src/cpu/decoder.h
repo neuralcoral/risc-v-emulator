@@ -9,22 +9,22 @@
 
 enum InstructionType { IType, SType, BType, UType, JType, RType };
 
-constexpr riscv::reg_t NO_REG = 0xFF;
+constexpr riscv::address_t NO_REG = 0xFF;
 constexpr riscv::funct_t NO_FUNCT = 0xFF;
 
 // This immediate is impossible to create with RISC-V hardware,
 // Can still be used in assembly, but it'd be split up by a clever
 // assembler
-constexpr riscv::word_t NO_IMM = 0xDEADBEEF;
+constexpr riscv::uword_t NO_IMM = 0xDEADBEEF;
 
 struct DecodedInstr {
     riscv::opcode_t opcode;
-    riscv::reg_t rd, rs1, rs2;
-    riscv::word_t immediate;
+    riscv::address_t rd, rs1, rs2;
+    riscv::uword_t immediate;
     riscv::funct_t funct3, funct7;
     InstructionType type;
-    DecodedInstr(riscv::opcode_t opcode, riscv::reg_t rd, riscv::reg_t rs1, riscv::reg_t rs2,
-                 riscv::word_t immediate, riscv::funct_t funct3, riscv::funct_t funct7,
+    DecodedInstr(riscv::opcode_t opcode, riscv::address_t rd, riscv::address_t rs1, riscv::address_t rs2,
+                 riscv::uword_t immediate, riscv::funct_t funct3, riscv::funct_t funct7,
                  InstructionType type)
         : opcode(opcode),
           rd(rd),
@@ -51,7 +51,7 @@ class Decoder {
 
    public:
     Decoder() = default;
-    DecodedInstr decode(const riscv::instruction_t& ins);
+    static DecodedInstr decode(const riscv::instruction_t& ins);
 };
 
 #endif  // RISC_V_EMULATOR_DECODER_H
