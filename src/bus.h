@@ -24,8 +24,8 @@ private:
 
 public:
     explicit Bus() = default;
-    void write(const riscv::mem_addr_t& addr, const riscv::word_t& value);
-    riscv::word_t read(const riscv::mem_addr_t& addr);
+    void write(const riscv::mem_addr_t& addr, const riscv::uword_t& value);
+    riscv::uword_t read(const riscv::mem_addr_t& addr);
     void register_device(Device *device, const riscv::mem_addr_t &addr_base);
     void update();
 };

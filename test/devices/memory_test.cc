@@ -10,7 +10,7 @@ protected:
 };
 
 TEST_F(MemoryTest, WritesCorreclty) {
-    riscv::byte_t written_byte;
+    riscv::ubyte_t written_byte;
     for (uint16_t i = 0; i < memory.size(); i++) {
         written_byte = 1 << (i % 8);
         memory.write(i, written_byte);

@@ -2,16 +2,16 @@
 
 #include <iostream>
 
-void SimpleUART::write(const riscv::mem_addr_t &addr, const riscv::byte_t &value) {
+void SimpleUART::write(const riscv::mem_addr_t &addr, const riscv::ubyte_t &value) {
     if (addr == DATA_ADDR) {
         out.put((char) value);
         out.flush();
     }
 }
 
-riscv::byte_t SimpleUART::read(const riscv::mem_addr_t &addr) {
+riscv::ubyte_t SimpleUART::read(const riscv::mem_addr_t &addr) {
     if (addr == DATA_ADDR and not rx.empty()) {
-        const riscv::byte_t val = rx.front();
+        const riscv::ubyte_t val = rx.front();
         rx.pop();
         return val;
     }

@@ -32,10 +32,10 @@ DecodedInstr Decoder::decode(const riscv::instruction_t &ins) {
 
 DecodedInstr Decoder::handleIType(const riscv::instruction_t &ins) {
     const riscv::opcode_t opcode = ins & 0x7F;
-    const riscv::reg_t rd = (ins >> 7) & REGISTER_BITMASK;
-    const riscv::reg_t rs1 = (ins >> 15) & REGISTER_BITMASK;
-    const riscv::reg_t rs2 = NO_REG;
-    const riscv::word_t immediate = immGen.generate(ins);
+    const riscv::address_t rd = (ins >> 7) & REGISTER_BITMASK;
+    const riscv::address_t rs1 = (ins >> 15) & REGISTER_BITMASK;
+    const riscv::address_t rs2 = NO_REG;
+    const riscv::uword_t immediate = immGen.generate(ins);
     const riscv::funct_t funct3 = (ins >> 12) & FUNCT_3_BITMASK;
     const riscv::funct_t funct7 = NO_FUNCT;
 
@@ -44,10 +44,10 @@ DecodedInstr Decoder::handleIType(const riscv::instruction_t &ins) {
 
 DecodedInstr Decoder::handleSType(const riscv::instruction_t &ins) {
     const riscv::opcode_t opcode = ins & 0x7F;
-    const riscv::reg_t rd = NO_REG;
-    const riscv::reg_t rs1 = (ins >> 15) & REGISTER_BITMASK;
-    const riscv::reg_t rs2 = (ins >> 20) & REGISTER_BITMASK;
-    const riscv::word_t immediate = immGen.generate(ins);
+    const riscv::address_t rd = NO_REG;
+    const riscv::address_t rs1 = (ins >> 15) & REGISTER_BITMASK;
+    const riscv::address_t rs2 = (ins >> 20) & REGISTER_BITMASK;
+    const riscv::uword_t immediate = immGen.generate(ins);
     const riscv::funct_t funct3 = (ins >> 12) & FUNCT_3_BITMASK;
     const riscv::funct_t funct7 = NO_FUNCT;
 
@@ -56,10 +56,10 @@ DecodedInstr Decoder::handleSType(const riscv::instruction_t &ins) {
 
 DecodedInstr Decoder::handleBType(const riscv::instruction_t &ins) {
     const riscv::opcode_t opcode = ins & 0x7F;
-    const riscv::reg_t rd = NO_REG;
-    const riscv::reg_t rs1 = (ins >> 15) & REGISTER_BITMASK;
-    const riscv::reg_t rs2 = (ins >> 20) & REGISTER_BITMASK;
-    const riscv::word_t immediate = immGen.generate(ins);
+    const riscv::address_t rd = NO_REG;
+    const riscv::address_t rs1 = (ins >> 15) & REGISTER_BITMASK;
+    const riscv::address_t rs2 = (ins >> 20) & REGISTER_BITMASK;
+    const riscv::uword_t immediate = immGen.generate(ins);
     const riscv::funct_t funct3 = (ins >> 12) & FUNCT_3_BITMASK;
     const riscv::funct_t funct7 = NO_FUNCT;
 
@@ -68,10 +68,10 @@ DecodedInstr Decoder::handleBType(const riscv::instruction_t &ins) {
 
 DecodedInstr Decoder::handleUType(const riscv::instruction_t &ins) {
     const riscv::opcode_t opcode = ins & 0x7F;
-    const riscv::reg_t rd = (ins >> 7) & REGISTER_BITMASK;
-    const riscv::reg_t rs1 = NO_REG;
-    const riscv::reg_t rs2 = NO_REG;
-    const riscv::word_t immediate = immGen.generate(ins);
+    const riscv::address_t rd = (ins >> 7) & REGISTER_BITMASK;
+    const riscv::address_t rs1 = NO_REG;
+    const riscv::address_t rs2 = NO_REG;
+    const riscv::uword_t immediate = immGen.generate(ins);
     const riscv::funct_t funct3 = NO_FUNCT;
     const riscv::funct_t funct7 = NO_FUNCT;
 
@@ -80,10 +80,10 @@ DecodedInstr Decoder::handleUType(const riscv::instruction_t &ins) {
 
 DecodedInstr Decoder::handleJType(const riscv::instruction_t &ins) {
     const riscv::opcode_t opcode = ins & 0x7F;
-    const riscv::reg_t rd = (ins >> 7) & REGISTER_BITMASK;
-    const riscv::reg_t rs1 = NO_REG;
-    const riscv::reg_t rs2 = NO_REG;
-    const riscv::word_t immediate = immGen.generate(ins);
+    const riscv::address_t rd = (ins >> 7) & REGISTER_BITMASK;
+    const riscv::address_t rs1 = NO_REG;
+    const riscv::address_t rs2 = NO_REG;
+    const riscv::uword_t immediate = immGen.generate(ins);
     const riscv::funct_t funct3 = NO_FUNCT;
     const riscv::funct_t funct7 = NO_FUNCT;
 
@@ -92,10 +92,10 @@ DecodedInstr Decoder::handleJType(const riscv::instruction_t &ins) {
 
 DecodedInstr Decoder::handleRType(const riscv::instruction_t &ins) {
     const riscv::opcode_t opcode = ins & 0x7F;
-    const riscv::reg_t rd = (ins >> 7) & REGISTER_BITMASK;
-    const riscv::reg_t rs1 = (ins >> 15) & REGISTER_BITMASK;
-    const riscv::reg_t rs2 = (ins >> 20) & REGISTER_BITMASK;
-    const riscv::word_t immediate = NO_IMM;
+    const riscv::address_t rd = (ins >> 7) & REGISTER_BITMASK;
+    const riscv::address_t rs1 = (ins >> 15) & REGISTER_BITMASK;
+    const riscv::address_t rs2 = (ins >> 20) & REGISTER_BITMASK;
+    const riscv::uword_t immediate = NO_IMM;
     const riscv::funct_t funct3 = (ins >> 12) & FUNCT_3_BITMASK;
     const riscv::funct_t funct7 = (ins >> 25) & FUNCT_7_BITMASK;
 

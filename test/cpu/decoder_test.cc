@@ -80,12 +80,12 @@ TEST_F(DecoderTest, DecodesRTypeAdd) {
 }
 
 // --- Immediate Edge Case Tests ---
-// Note: Casting negative expected values to unsigned riscv::word_t to match the struct
+// Note: Casting negative expected values to unsigned riscv::uword_t to match the struct
 
 TEST_F(DecoderTest, DecodesITypeNegativeImmediate) {
     riscv::instruction_t ins = 0xFFF00513;
     // Actual hex decoding: rd=10, rs1=0, imm=-1, funct3=0
-    DecodedInstr expected(0x13, 10, 0, NO_REG, static_cast<riscv::word_t>(-1), 0, NO_FUNCT, IType);
+    DecodedInstr expected(0x13, 10, 0, NO_REG, static_cast<riscv::uword_t>(-1), 0, NO_FUNCT, IType);
     DecodedInstr actual = decoder.decode(ins);
     EXPECT_EQ(expected, actual);
 }
@@ -109,7 +109,7 @@ TEST_F(DecoderTest, DecodesITypeMaxPositiveImmediate) {
 TEST_F(DecoderTest, DecodesITypeMaxNegativeImmediate) {
     riscv::instruction_t ins = 0x80000513;
     // Actual hex decoding: rd=10, rs1=0, imm=-2048, funct3=0
-    DecodedInstr expected(0x13, 10, 0, NO_REG, static_cast<riscv::word_t>(-2048), 0, NO_FUNCT, IType);
+    DecodedInstr expected(0x13, 10, 0, NO_REG, static_cast<riscv::uword_t>(-2048), 0, NO_FUNCT, IType);
     DecodedInstr actual = decoder.decode(ins);
     EXPECT_EQ(expected, actual);
 }

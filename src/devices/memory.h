@@ -8,10 +8,10 @@
 class Memory : public Device
 {
 private:
-    std::array<riscv::byte_t, riscv::RAM_SIZE> memory {};
+    std::array<riscv::ubyte_t, riscv::RAM_SIZE> memory {};
     public:
-        riscv::byte_t read(const riscv::mem_addr_t& addr) override;
-        void write(const riscv::mem_addr_t& addr, const riscv::byte_t& value) override;
+        riscv::ubyte_t read(const riscv::mem_addr_t& addr) override;
+        void write(const riscv::mem_addr_t& addr, const riscv::ubyte_t& value) override;
         riscv::mem_addr_t size() const override { return riscv::RAM_SIZE; };
 };
 

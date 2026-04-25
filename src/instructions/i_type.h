@@ -1,4 +1,4 @@
-#ifndef RISC_V_EMULATOR_I_TYPE_H
+#ifndef RISC_V_EMULATOR_I_TYPE_H:
 #define RISC_V_EMULATOR_I_TYPE_H
 
 #include "base_instruction.h"

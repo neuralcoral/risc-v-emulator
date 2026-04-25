@@ -11,12 +11,12 @@ class SimpleUART: public Device{
 private:
     std::istream& in;
     std::ostream& out;
-    std::queue<riscv::byte_t> rx;
+    std::queue<riscv::ubyte_t> rx;
 
 public:
     explicit SimpleUART(std::istream& in_stream, std::ostream& out_stream) :in(in_stream), out(out_stream) {}
-    riscv::byte_t read(const riscv::mem_addr_t &addr) override;
-    void write(const riscv::mem_addr_t &addr, const riscv::byte_t &value) override;
+    riscv::ubyte_t read(const riscv::mem_addr_t &addr) override;
+    void write(const riscv::mem_addr_t &addr, const riscv::ubyte_t &value) override;
     void update() override;
     bool is_active() override;
 
@@ -24,9 +24,9 @@ public:
 
     static constexpr riscv::mem_addr_t DATA_ADDR { 0 },
             STATUS_ADDR { 5 };
-    static constexpr riscv::byte_t LINE_READY { 0x21 },
+    static constexpr riscv::ubyte_t LINE_READY {0x21 },
             LINE_EMPTY { 0x20 };
-    static constexpr riscv::double_word_t RX_BUFFER_SZ { 16 };
+    static constexpr riscv::udouble_word_t RX_BUFFER_SZ {16 };
 };
 
 
