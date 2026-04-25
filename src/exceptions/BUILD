@@ -6,6 +6,8 @@ cc_library(
         "bus_exception.h",
         "decode_exception.h",
         "device_exception.h",
+        "execute_exception.h",
+        "invalid_assembly_instruction.h",
         "memory_exception.h",
         "register_file_exception.h",
     ],
