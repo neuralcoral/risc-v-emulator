@@ -3,6 +3,8 @@
 
 int main() {
     std::cout << "Hello, Bazel!" << std::endl;
-    auto cpu = Cpu();
+    Memory memory = Memory();
+    RegisterFile register_file = RegisterFile();
+    auto cpu = Cpu(memory, register_file);
     return 0;
 }

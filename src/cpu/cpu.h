@@ -18,14 +18,15 @@ class Cpu {
     riscv::address_t  rs1{}, rs2{}, rd{};
     riscv::reg_t pc{RESET_VECTOR}, data{};
     riscv::instruction_t  instruction{};
-    Memory memory;
-    RegisterFile registerFile;
+    Memory* memory;
+    RegisterFile* registerFile;
     void fetch();
     void execute(const DecodedInstr& decodedInstr);
     void executeIType(const DecodedInstr& decodedInstr);
     void handleLoads(const DecodedInstr& decodedInstr);
     void handleOpImm(const DecodedInstr& decodedInstr);
     void handleJumpAndLinkRegister(const DecodedInstr& decodedInstr);
+    void handleStores(const DecodedInstr& decodedInstr);
     void executeSType(const DecodedInstr& decodedInstr);
     void executeBType(const DecodedInstr& decodedInstr);
     void executeUType(const DecodedInstr& decodedInstr);
@@ -35,11 +36,12 @@ class Cpu {
     void memoryAccess();
     void writeBack();
 public:
-    // TODO Refactor to take Devices in general.
     Cpu(Memory& memory, RegisterFile& registerFile);
     ~Cpu();
 
     void step();
+
+    riscv::reg_t getPc() const { return pc; }
 };
 
 #endif  // RISC_V_EMULATOR_CPU_H

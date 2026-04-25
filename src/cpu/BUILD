@@ -7,27 +7,16 @@ package(default_visibility = [
 
 cc_library(
     name = "cpu",
-    srcs = ["cpu.cc"],
-    hdrs = ["cpu.h"],
+    srcs = ["cpu.cc", "decoder.cc"],
+    hdrs = ["cpu.h", "decoder.h"],
     visibility = [
         "//src:__pkg__",
+        "//test/cpu:__pkg__",
     ],
     deps = [
         "//src/devices:memory",
         "//src/instructions",
-    ],
-)
-
-cc_library(
-    name = "decoder",
-    srcs = [
-        "decoder.cc",
-    ],
-    hdrs = [
-        "decoder.h",
-    ],
-    deps = [
-        "//src/common",
+        "//src:register_files",
         "//src/datapath:imm_gen",
         "//src/exceptions",
     ],
